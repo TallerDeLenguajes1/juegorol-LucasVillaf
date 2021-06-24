@@ -47,8 +47,7 @@ namespace JuegoDeRolPorTurnos
                 {
                     btnElegir.Enabled = false;
                     btnCargar.Enabled = true;
-                }
-               
+                }               
             }
             else
             {

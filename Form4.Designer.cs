@@ -30,6 +30,7 @@ namespace JuegoDeRolPorTurnos
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
             this.lblNombreElegido = new System.Windows.Forms.Label();
             this.lblApodoEscodigo = new System.Windows.Forms.Label();
             this.lblClaseEscogida = new System.Windows.Forms.Label();
@@ -46,6 +47,16 @@ namespace JuegoDeRolPorTurnos
             this.lblArmadura = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.imgElfa = new System.Windows.Forms.PictureBox();
+            this.imgOrco = new System.Windows.Forms.PictureBox();
+            this.imgHumano = new System.Windows.Forms.PictureBox();
+            this.imgEnano = new System.Windows.Forms.PictureBox();
+            this.imgElfaOsc = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.imgElfa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgOrco)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgHumano)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgEnano)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgElfaOsc)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNombreElegido
@@ -200,12 +211,72 @@ namespace JuegoDeRolPorTurnos
             this.lblArmadura.TabIndex = 13;
             this.lblArmadura.Text = "armadura";
             // 
+            // imgElfa
+            // 
+            this.imgElfa.BackColor = System.Drawing.Color.Transparent;
+            this.imgElfa.Image = global::JuegoDeRolPorTurnos.Properties.Resources.elfapng;
+            this.imgElfa.Location = new System.Drawing.Point(-16, -7);
+            this.imgElfa.Name = "imgElfa";
+            this.imgElfa.Size = new System.Drawing.Size(378, 489);
+            this.imgElfa.TabIndex = 14;
+            this.imgElfa.TabStop = false;
+            this.imgElfa.Visible = false;
+            // 
+            // imgOrco
+            // 
+            this.imgOrco.BackColor = System.Drawing.Color.Transparent;
+            this.imgOrco.Image = global::JuegoDeRolPorTurnos.Properties.Resources.orcopng;
+            this.imgOrco.Location = new System.Drawing.Point(398, 12);
+            this.imgOrco.Name = "imgOrco";
+            this.imgOrco.Size = new System.Drawing.Size(435, 534);
+            this.imgOrco.TabIndex = 15;
+            this.imgOrco.TabStop = false;
+            this.imgOrco.Visible = false;
+            // 
+            // imgHumano
+            // 
+            this.imgHumano.BackColor = System.Drawing.Color.Transparent;
+            this.imgHumano.Image = ((System.Drawing.Image)(resources.GetObject("imgHumano.Image")));
+            this.imgHumano.Location = new System.Drawing.Point(-59, 23);
+            this.imgHumano.Name = "imgHumano";
+            this.imgHumano.Size = new System.Drawing.Size(378, 489);
+            this.imgHumano.TabIndex = 16;
+            this.imgHumano.TabStop = false;
+            this.imgHumano.Visible = false;
+            // 
+            // imgEnano
+            // 
+            this.imgEnano.BackColor = System.Drawing.Color.Transparent;
+            this.imgEnano.Image = ((System.Drawing.Image)(resources.GetObject("imgEnano.Image")));
+            this.imgEnano.Location = new System.Drawing.Point(433, 87);
+            this.imgEnano.Name = "imgEnano";
+            this.imgEnano.Size = new System.Drawing.Size(435, 534);
+            this.imgEnano.TabIndex = 17;
+            this.imgEnano.TabStop = false;
+            this.imgEnano.Visible = false;
+            // 
+            // imgElfaOsc
+            // 
+            this.imgElfaOsc.BackColor = System.Drawing.Color.Transparent;
+            this.imgElfaOsc.Image = ((System.Drawing.Image)(resources.GetObject("imgElfaOsc.Image")));
+            this.imgElfaOsc.Location = new System.Drawing.Point(-361, 11);
+            this.imgElfaOsc.Name = "imgElfaOsc";
+            this.imgElfaOsc.Size = new System.Drawing.Size(658, 471);
+            this.imgElfaOsc.TabIndex = 18;
+            this.imgElfaOsc.TabStop = false;
+            this.imgElfaOsc.Visible = false;
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::JuegoDeRolPorTurnos.Properties.Resources.img2;
             this.ClientSize = new System.Drawing.Size(804, 481);
+            this.Controls.Add(this.imgElfaOsc);
+            this.Controls.Add(this.imgEnano);
+            this.Controls.Add(this.imgHumano);
+            this.Controls.Add(this.imgOrco);
+            this.Controls.Add(this.imgElfa);
             this.Controls.Add(this.lblArmadura);
             this.Controls.Add(this.lblFuerza);
             this.Controls.Add(this.lblDestreza);
@@ -226,6 +297,11 @@ namespace JuegoDeRolPorTurnos
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form4";
             this.Load += new System.EventHandler(this.Form4_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.imgElfa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgOrco)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgHumano)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgEnano)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgElfaOsc)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,5 +325,10 @@ namespace JuegoDeRolPorTurnos
         private System.Windows.Forms.Label lblArmadura;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.PictureBox imgElfa;
+        private System.Windows.Forms.PictureBox imgOrco;
+        private System.Windows.Forms.PictureBox imgHumano;
+        private System.Windows.Forms.PictureBox imgEnano;
+        private System.Windows.Forms.PictureBox imgElfaOsc;
     }
 }
