@@ -186,6 +186,10 @@ namespace JuegoDeRolPorTurnos
                     btnAtacar2.Enabled = false;
                     lblSigpelea.Enabled = true;
                     lblSigpelea.Visible = true;
+                    if (ListaDePersonajes5.Count == 1)
+                    {
+                        MessageBox.Show(ListaDePersonajes5[0].Nombre + " " + ListaDePersonajes5[0].Apodo + " es el CAMPEÓN!");
+                    }
                 }
                 else
                 {
@@ -198,6 +202,10 @@ namespace JuegoDeRolPorTurnos
                     btnAtacar2.Enabled = false;
                     lblSigpelea.Enabled = true;
                     lblSigpelea.Visible = true;
+                    if (ListaDePersonajes5.Count == 1)
+                    {
+                        MessageBox.Show(ListaDePersonajes5[0].Nombre + " " + ListaDePersonajes5[0].Apodo + " es el CAMPEÓN!");
+                    }
                 }
             }            
             else
@@ -213,6 +221,10 @@ namespace JuegoDeRolPorTurnos
                     btnAtacar2.Enabled = false;
                     lblSigpelea.Enabled = true;
                     lblSigpelea.Visible = true;
+                    if (ListaDePersonajes5.Count == 1)
+                    {
+                        MessageBox.Show(ListaDePersonajes5[0].Nombre + " " + ListaDePersonajes5[0].Apodo + " es el CAMPEÓN!");
+                    }
                 }
                 else if (Pelea[0].Salud < 0)
                 {
@@ -225,6 +237,10 @@ namespace JuegoDeRolPorTurnos
                     btnAtacar2.Enabled = false;
                     lblSigpelea.Enabled = true;
                     lblSigpelea.Visible = true;
+                    if (ListaDePersonajes5.Count == 1)
+                    {
+                        MessageBox.Show(ListaDePersonajes5[0].Nombre + " " + ListaDePersonajes5[0].Apodo + " es el CAMPEÓN!");
+                    }
                 }
             }
         }
@@ -255,7 +271,7 @@ namespace JuegoDeRolPorTurnos
             PeleadorGanador();
             if (cant2 == 3)
             {
-                btnAtacar1.Enabled = false;
+                btnAtacar2.Enabled = false;
             }
         }
         
@@ -275,6 +291,8 @@ namespace JuegoDeRolPorTurnos
             lblGanador.Visible = false;
             btnElegir.Enabled = true;
             btnCargar.Enabled = false;
+            btnDado.Enabled = false;
+            btnDado2.Enabled = false;
         }
 
         public void Atacar(Personaje Ataca, Personaje Defiende)

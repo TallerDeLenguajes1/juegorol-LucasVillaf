@@ -29,3 +29,14 @@ C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\obj\Debug\netcoreapp
 C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\obj\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.csproj.GenerateResource.cache
 C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\obj\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.dll
 C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\obj\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.pdb
+C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\bin\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.exe
+C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\bin\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.deps.json
+C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\bin\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.runtimeconfig.json
+C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\bin\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.runtimeconfig.dev.json
+C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\bin\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.dll
+C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\bin\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.pdb
+C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\obj\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.Properties.Resources.resources
+C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\obj\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.AssemblyInfoInputs.cache
+C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\obj\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.AssemblyInfo.cs
+C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\obj\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.csproj.CoreCompileInputs.cache
+C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\obj\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.genruntimeconfig.cache

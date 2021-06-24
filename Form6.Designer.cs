@@ -89,7 +89,7 @@ namespace JuegoDeRolPorTurnos
             this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTitulo.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblTitulo.Location = new System.Drawing.Point(253, 30);
+            this.lblTitulo.Location = new System.Drawing.Point(323, 28);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(299, 47);
             this.lblTitulo.TabIndex = 2;
@@ -99,7 +99,7 @@ namespace JuegoDeRolPorTurnos
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(333, 81);
+            this.label3.Location = new System.Drawing.Point(403, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(138, 15);
             this.label3.TabIndex = 3;
@@ -330,7 +330,7 @@ namespace JuegoDeRolPorTurnos
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(442, 214);
+            this.label4.Location = new System.Drawing.Point(434, 214);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 15);
             this.label4.TabIndex = 29;
@@ -340,7 +340,7 @@ namespace JuegoDeRolPorTurnos
             // btnDado
             // 
             this.btnDado.Enabled = false;
-            this.btnDado.Location = new System.Drawing.Point(450, 232);
+            this.btnDado.Location = new System.Drawing.Point(442, 232);
             this.btnDado.Name = "btnDado";
             this.btnDado.Size = new System.Drawing.Size(27, 27);
             this.btnDado.TabIndex = 28;
@@ -352,7 +352,7 @@ namespace JuegoDeRolPorTurnos
             // btnDado2
             // 
             this.btnDado2.Enabled = false;
-            this.btnDado2.Location = new System.Drawing.Point(483, 232);
+            this.btnDado2.Location = new System.Drawing.Point(475, 232);
             this.btnDado2.Name = "btnDado2";
             this.btnDado2.Size = new System.Drawing.Size(27, 27);
             this.btnDado2.TabIndex = 30;
@@ -364,7 +364,7 @@ namespace JuegoDeRolPorTurnos
             // btnPelear
             // 
             this.btnPelear.Enabled = false;
-            this.btnPelear.Location = new System.Drawing.Point(442, 267);
+            this.btnPelear.Location = new System.Drawing.Point(434, 267);
             this.btnPelear.Name = "btnPelear";
             this.btnPelear.Size = new System.Drawing.Size(77, 30);
             this.btnPelear.TabIndex = 31;
