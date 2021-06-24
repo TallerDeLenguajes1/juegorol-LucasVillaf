@@ -18,8 +18,7 @@ namespace JuegoDeRolPorTurnos
         }
 
         Personaje nuevoPJ = new Personaje();
-        FabricaDePersonajes stats = new FabricaDePersonajes();
-        
+        FabricaDePersonajes stats = new FabricaDePersonajes();        
 
         private void Form3_Load(object sender, EventArgs e)
         {
@@ -29,7 +28,7 @@ namespace JuegoDeRolPorTurnos
             comboBoxClase.Items.Add(TipoDeClase.Elfo);
             comboBoxClase.Items.Add(TipoDeClase.ElfoOscuro);
         }
-        private void txtBoxNombrePj_TextChanged(object sender, EventArgs e)
+        private void txtBoxNombrePj_TextChanged(object sender, EventArgs e) 
         {
             nuevoPJ.Nombre = txtBoxNombrePj.Text;
         }
@@ -42,7 +41,7 @@ namespace JuegoDeRolPorTurnos
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             nuevoPJ.FechadeNacimiento = dateTimePicker1.Value;
-            nuevoPJ.Edad = DateTime.Now.Year - dateTimePicker1.Value.Year;
+            nuevoPJ.Edad = DateTime.Now.Year - dateTimePicker1.Value.Year; // cálculo de edad, resta de año y año de nacimiento
         }
 
         private void comboBoxClase_SelectedIndexChanged(object sender, EventArgs e)

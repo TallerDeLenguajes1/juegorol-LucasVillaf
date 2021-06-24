@@ -19,7 +19,7 @@ namespace JuegoDeRolPorTurnos
 
         private void Form4_Load(object sender, EventArgs e)
         {
-            imgElfa.SendToBack();
+            imgElfa.SendToBack(); // envio images al fondo del formulario, no sabia como hacerlo de otra manera
             imgOrco.SendToBack();
             imgEnano.SendToBack();
             imgHumano.SendToBack();
@@ -36,7 +36,6 @@ namespace JuegoDeRolPorTurnos
             lblArmadura.Text = "Armadura: " + ListadoDePersonajes3[0].Armadura.ToString();
 
             CargarImagenDelPersonajeCreado();
-
         }
 
         private void btnAtras_Click(object sender, EventArgs e)

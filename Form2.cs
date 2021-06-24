@@ -25,8 +25,7 @@ namespace JuegoDeRolPorTurnos
             nuevoPersonaje = PersonajeRandom.CrearPersonajePorDefecto();
             ListadoDePersonajes.Add(nuevoPersonaje);
             Form4 cuartoFormulario = new Form4(ListadoDePersonajes);
-            cuartoFormulario.ShowDialog();
-            
+            cuartoFormulario.ShowDialog();            
         }
 
         private void btnPersonalizar_Click(object sender, EventArgs e) //botón que crea un pj de manera personalizada
