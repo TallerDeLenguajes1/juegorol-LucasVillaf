@@ -15,6 +15,7 @@ namespace JuegoDeRolPorTurnos
             string[] Apodos = { "Grande", "Matador", "Valiente", "Veloz", "Sanguinario", "Increible", "Degollador", "Malo", "Torpe" };
             int AñoActual = DateTime.Now.Year;
 
+
             nuevoPersonaje.Clase = GenerarClaseAleatoria(random);
             nuevoPersonaje.Nombre = Nombres[random.Next(0, 9)];
             nuevoPersonaje.Apodo = Apodos[random.Next(0, 9)];
