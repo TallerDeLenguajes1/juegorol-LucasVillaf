@@ -39,9 +39,9 @@ namespace JuegoDeRolPorTurnos
             int index = listBoxLuchadores.SelectedIndex;
             if(ListaDePersonajes5.Count>=2)
             {   
-                if(Pelea.Count<=2)
+                if(Pelea.Count<=2)//La lista deberia cortar en 2, pero no lo hace
                 {
-                    Pelea.Add(ListaDePersonajes5[index]);
+                    Pelea.Add(ListaDePersonajes5[index]); 
                 }
                 else
                 {
@@ -170,6 +170,16 @@ namespace JuegoDeRolPorTurnos
             listBoxLuchadores.Items.RemoveAt(indice);
         }
 
+        public void MejorarHabilidadesAlGanador (Personaje Ganador)
+        {
+            Random rand = new Random();
+            Ganador.Nivel++;
+            Ganador.Armadura += rand.Next(1, 6);
+            Ganador.Fuerza += rand.Next(1, 6);
+            Ganador.Velocidad += rand.Next(1, 6);
+            Ganador.Destreza += rand.Next(1, 6);         
+        }
+
         public void PeleadorGanador()
         {
             if(cant1 == 3 && cant2 == 3)
@@ -178,7 +188,8 @@ namespace JuegoDeRolPorTurnos
                 {
                     lblGanador.Text = Pelea[0].Nombre + " " + Pelea[0].Apodo + " es el GANADOR!";
                     Pelea[0].Salud = 100;
-                    EliminarPerdedorDeLista(Pelea[1]);
+                    MejorarHabilidadesAlGanador(Pelea[0]); //sube de nivel y mejora stats
+                    EliminarPerdedorDeLista(Pelea[1]); //eliminar perdedor de lista enlazada
                     Pelea.Clear();
                     //ListaDePersonajes5.Remove();
                     lblGanador.Visible = true;
@@ -195,6 +206,7 @@ namespace JuegoDeRolPorTurnos
                 {
                     lblGanador.Text = Pelea[1].Nombre + " " + Pelea[1].Apodo + " es el GANADOR!";
                     Pelea[1].Salud = 100;
+                    MejorarHabilidadesAlGanador(Pelea[1]); //sube de nivel y mejora stats
                     EliminarPerdedorDeLista(Pelea[0]);
                     Pelea.Clear();
                     lblGanador.Visible = true;
@@ -214,6 +226,7 @@ namespace JuegoDeRolPorTurnos
                 {
                     lblGanador.Text = Pelea[0].Nombre + " " + Pelea[0].Apodo + " es el GANADOR!";
                     Pelea[0].Salud = 100;
+                    MejorarHabilidadesAlGanador(Pelea[0]); //sube de nivel y mejora stats
                     EliminarPerdedorDeLista(Pelea[1]);
                     Pelea.Clear();
                     lblGanador.Visible = true;
@@ -230,6 +243,7 @@ namespace JuegoDeRolPorTurnos
                 {
                     lblGanador.Text = Pelea[1].Nombre + " " + Pelea[1].Apodo + " es el GANADOR!";
                     Pelea[1].Salud = 100;
+                    MejorarHabilidadesAlGanador(Pelea[1]); //sube de nivel y mejora stats
                     EliminarPerdedorDeLista(Pelea[0]);
                     Pelea.Clear();
                     lblGanador.Visible = true;
