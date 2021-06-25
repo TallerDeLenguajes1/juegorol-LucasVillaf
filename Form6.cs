@@ -172,8 +172,15 @@ namespace JuegoDeRolPorTurnos
             lblDestreza1.Text = "Destreza: " + Pelea[0].Destreza.ToString();
             lblFuerza1.Text = "Fuerza: " + Pelea[0].Fuerza.ToString();
             lblArmadura.Text = "Armadura: " + Pelea[0].Armadura.ToString();
-            lblSalud1.Text = Pelea[0].Salud.ToString();
-            if (Pelea[0].Salud > 0)
+            if(Pelea[0].Salud < 0)
+            {
+                lblSalud1.Text = "0";
+            }
+            else
+            {
+                lblSalud1.Text = Pelea[0].Salud.ToString();
+            }
+            if(Pelea[0].Salud > 0)
             {
                 progressBar1.Value = Pelea[0].Salud;
             }
@@ -189,7 +196,14 @@ namespace JuegoDeRolPorTurnos
             lblDestreza2.Text = "Destreza: " + Pelea[1].Destreza.ToString();
             lblFuerza2.Text = "Fuerza: " + Pelea[1].Fuerza.ToString();
             lblArmadura2.Text = "Armadura: " + Pelea[1].Armadura.ToString();
-            lblSalud2.Text = Pelea[1].Salud.ToString();
+            if (Pelea[1].Salud < 0)
+            {
+                lblSalud2.Text = "0";
+            }
+            else
+            {
+                lblSalud2.Text = Pelea[1].Salud.ToString();
+            }
             if (Pelea[1].Salud > 0)
             {
                 progressBar2.Value = Pelea[1].Salud;
@@ -287,7 +301,7 @@ namespace JuegoDeRolPorTurnos
             }            
             else
             {
-                if (Pelea[1].Salud < 0 )
+                if (Pelea[1].Salud <= 0 )
                 {
                     lblGanador.Text = Pelea[0].Nombre + " " + Pelea[0].Apodo + " es el GANADOR!";
                     Pelea[0].Salud = 100;
@@ -297,7 +311,7 @@ namespace JuegoDeRolPorTurnos
                     CambiarEstadoDeBotones();
                     ProclamarCampeon();
                 }
-                else if (Pelea[0].Salud < 0)
+                else if (Pelea[0].Salud <= 0)
                 {
                     lblGanador.Text = Pelea[1].Nombre + " " + Pelea[1].Apodo + " es el GANADOR!";
                     Pelea[1].Salud = 100;
@@ -315,6 +329,7 @@ namespace JuegoDeRolPorTurnos
             if (ListaDePersonajes5.Count == 1)
             {
                 MessageBox.Show(ListaDePersonajes5[0].Nombre + " " + ListaDePersonajes5[0].Apodo + " es el CAMPEÓN!");
+                lblGanador.Text = ListaDePersonajes5[0].Nombre + " " + ListaDePersonajes5[0].Apodo + " es el CAMPEÓN!";
                 listBoxLuchadores.Enabled = false;
                 lblSigpelea.Enabled = false;
             }
