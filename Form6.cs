@@ -37,25 +37,7 @@ namespace JuegoDeRolPorTurnos
 
         private void btnElegir_Click(object sender, EventArgs e)
         {
-            int index = listBoxLuchadores.SelectedIndex;
-            
-            if(ListaDePersonajes5.Count>=2)
-            {   
-                if(Pelea.Count<=2)//*La lista deberia cortar en 2, pero no lo hace, corta en 4 seleccionados
-                {                    
-                     Pelea.Add(ListaDePersonajes5[index]);                     
-                }
-                else
-                {
-                    btnElegir.Enabled = false;
-                    btnCargar.Enabled = true;
-                }               
-            }
-            else
-            {
-                btnCargar.Enabled = false;
-                btnElegir.Enabled = false;
-            }
+            ElegirYControlarCantidadDePeleadores();
         }
 
         private void btnCargar_Click_1(object sender, EventArgs e)
@@ -68,6 +50,7 @@ namespace JuegoDeRolPorTurnos
                 btnDado.Enabled = true;
                 btnDado2.Visible = true;            
                 btnPelear.Visible = true;
+                lblSigpelea.Enabled = false;
             }
             else
             {   
@@ -149,6 +132,34 @@ namespace JuegoDeRolPorTurnos
             btnDado.Enabled = false;
             btnDado2.Enabled = false;
             btnPelear.Enabled = false;
+        }
+
+        public void ElegirYControlarCantidadDePeleadores()
+        {
+            int index = listBoxLuchadores.SelectedIndex;
+
+            if (ListaDePersonajes5.Count >= 2)
+            {
+                if (Pelea.Count == 2)
+                {
+                    btnElegir.Enabled = false;
+                    btnCargar.Enabled = true;
+                }
+                else
+                {
+                    Pelea.Add(ListaDePersonajes5[index]);
+                    if (Pelea.Count == 2)
+                    {
+                        btnElegir.Enabled = false;
+                        btnCargar.Enabled = true;
+                    }
+                }
+            }
+            else
+            {
+                btnCargar.Enabled = false;
+                btnElegir.Enabled = false;
+            }
         }
 
         public void CargarDatos (List<Personaje> Pelea) // cargo los datos de los peleadores en pantalla
@@ -261,11 +272,7 @@ namespace JuegoDeRolPorTurnos
                     EliminarPerdedorDeLista(Pelea[1]); //eliminar perdedor de lista enlazada
                     Pelea.Clear(); //limpio la lista de peleadores elegidos                    
                     CambiarEstadoDeBotones();
-                    if (ListaDePersonajes5.Count == 1)
-                    {
-                        MessageBox.Show(ListaDePersonajes5[0].Nombre + " " + ListaDePersonajes5[0].Apodo + " es el CAMPEÓN!");
-                        listBoxLuchadores.Enabled = false;
-                    }
+                    ProclamarCampeon();
                 }
                 else
                 {
@@ -275,11 +282,7 @@ namespace JuegoDeRolPorTurnos
                     EliminarPerdedorDeLista(Pelea[0]); //eliminar perdedor de lista enlazada
                     Pelea.Clear(); //limpio la lista de peleadores elegidos  
                     CambiarEstadoDeBotones();
-                    if (ListaDePersonajes5.Count == 1)
-                    {
-                        MessageBox.Show(ListaDePersonajes5[0].Nombre + " " + ListaDePersonajes5[0].Apodo + " es el CAMPEÓN!");
-                        listBoxLuchadores.Enabled = false;
-                    }
+                    ProclamarCampeon();
                 }
             }            
             else
@@ -292,11 +295,7 @@ namespace JuegoDeRolPorTurnos
                     EliminarPerdedorDeLista(Pelea[1]);
                     Pelea.Clear();
                     CambiarEstadoDeBotones();
-                    if (ListaDePersonajes5.Count == 1)
-                    {
-                        MessageBox.Show(ListaDePersonajes5[0].Nombre + " " + ListaDePersonajes5[0].Apodo + " es el CAMPEÓN!");
-                        listBoxLuchadores.Enabled = false;
-                    }
+                    ProclamarCampeon();
                 }
                 else if (Pelea[0].Salud < 0)
                 {
@@ -306,12 +305,18 @@ namespace JuegoDeRolPorTurnos
                     EliminarPerdedorDeLista(Pelea[0]);
                     Pelea.Clear();
                     CambiarEstadoDeBotones();
-                    if (ListaDePersonajes5.Count == 1)
-                    {
-                        MessageBox.Show(ListaDePersonajes5[0].Nombre + " " + ListaDePersonajes5[0].Apodo + " es el CAMPEÓN!");
-                        listBoxLuchadores.Enabled = false;                        
-                    }
+                    ProclamarCampeon();
                 }
+            }
+        }
+
+        public void ProclamarCampeon()
+        {
+            if (ListaDePersonajes5.Count == 1)
+            {
+                MessageBox.Show(ListaDePersonajes5[0].Nombre + " " + ListaDePersonajes5[0].Apodo + " es el CAMPEÓN!");
+                listBoxLuchadores.Enabled = false;
+                lblSigpelea.Enabled = false;
             }
         }
         

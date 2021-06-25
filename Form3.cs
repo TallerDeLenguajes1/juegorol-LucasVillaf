@@ -52,9 +52,11 @@ namespace JuegoDeRolPorTurnos
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
-            if (txtBoxNombrePj.Text == "" || txtBoxNombrePj.Text == "" || comboBoxClase.SelectedIndex.ToString() == "")
+            if (string.IsNullOrEmpty(txtApodoPj.Text) || string.IsNullOrEmpty(txtBoxNombrePj.Text) || string.IsNullOrWhiteSpace(txtBoxNombrePj.Text) || string.IsNullOrWhiteSpace(txtApodoPj.Text))
             {
                 MessageBox.Show("Ingrese los datos obligatorios");
+                txtApodoPj.Clear();
+                txtBoxNombrePj.Clear();
             }
             else
             {
@@ -62,6 +64,6 @@ namespace JuegoDeRolPorTurnos
                 Form4 cuartoFormulario = new Form4(ListadoDePersonajes2);
                 cuartoFormulario.ShowDialog();
             }
-        }
+        }       
     }
 }
