@@ -39,6 +39,7 @@ namespace JuegoDeRolPorTurnos
             this.txtApodoPj = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnCrear = new System.Windows.Forms.Button();
+            this.lblObligatorios = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblPjPersonalizado
@@ -57,7 +58,7 @@ namespace JuegoDeRolPorTurnos
             this.lblFechaNac.AutoSize = true;
             this.lblFechaNac.BackColor = System.Drawing.Color.Transparent;
             this.lblFechaNac.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblFechaNac.Location = new System.Drawing.Point(258, 264);
+            this.lblFechaNac.Location = new System.Drawing.Point(261, 264);
             this.lblFechaNac.Name = "lblFechaNac";
             this.lblFechaNac.Size = new System.Drawing.Size(117, 15);
             this.lblFechaNac.TabIndex = 6;
@@ -68,33 +69,33 @@ namespace JuegoDeRolPorTurnos
             this.lblApodoPj.AutoSize = true;
             this.lblApodoPj.BackColor = System.Drawing.Color.Transparent;
             this.lblApodoPj.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblApodoPj.Location = new System.Drawing.Point(259, 227);
+            this.lblApodoPj.Location = new System.Drawing.Point(246, 227);
             this.lblApodoPj.Name = "lblApodoPj";
-            this.lblApodoPj.Size = new System.Drawing.Size(116, 15);
+            this.lblApodoPj.Size = new System.Drawing.Size(132, 15);
             this.lblApodoPj.TabIndex = 5;
-            this.lblApodoPj.Text = "Apodo del personaje";
+            this.lblApodoPj.Text = "Apodo del personaje (*)";
             // 
             // lblNombrePj
             // 
             this.lblNombrePj.AutoSize = true;
             this.lblNombrePj.BackColor = System.Drawing.Color.Transparent;
             this.lblNombrePj.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblNombrePj.Location = new System.Drawing.Point(251, 190);
+            this.lblNombrePj.Location = new System.Drawing.Point(238, 190);
             this.lblNombrePj.Name = "lblNombrePj";
-            this.lblNombrePj.Size = new System.Drawing.Size(124, 15);
+            this.lblNombrePj.Size = new System.Drawing.Size(140, 15);
             this.lblNombrePj.TabIndex = 4;
-            this.lblNombrePj.Text = "Nombre del personaje";
+            this.lblNombrePj.Text = "Nombre del personaje (*)";
             // 
             // lblClase
             // 
             this.lblClase.AutoSize = true;
             this.lblClase.BackColor = System.Drawing.Color.Transparent;
             this.lblClase.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblClase.Location = new System.Drawing.Point(340, 153);
+            this.lblClase.Location = new System.Drawing.Point(328, 153);
             this.lblClase.Name = "lblClase";
-            this.lblClase.Size = new System.Drawing.Size(34, 15);
+            this.lblClase.Size = new System.Drawing.Size(50, 15);
             this.lblClase.TabIndex = 7;
-            this.lblClase.Text = "Clase";
+            this.lblClase.Text = "Clase (*)";
             // 
             // comboBoxClase
             // 
@@ -139,12 +140,23 @@ namespace JuegoDeRolPorTurnos
             this.btnCrear.UseVisualStyleBackColor = true;
             this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
+            // lblObligatorios
+            // 
+            this.lblObligatorios.AutoSize = true;
+            this.lblObligatorios.BackColor = System.Drawing.Color.Transparent;
+            this.lblObligatorios.Location = new System.Drawing.Point(336, 429);
+            this.lblObligatorios.Name = "lblObligatorios";
+            this.lblObligatorios.Size = new System.Drawing.Size(133, 15);
+            this.lblObligatorios.TabIndex = 13;
+            this.lblObligatorios.Text = "(*) Campos obligatorios";
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::JuegoDeRolPorTurnos.Properties.Resources.img2;
             this.ClientSize = new System.Drawing.Size(804, 481);
+            this.Controls.Add(this.lblObligatorios);
             this.Controls.Add(this.btnCrear);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.txtApodoPj);
@@ -178,5 +190,6 @@ namespace JuegoDeRolPorTurnos
         private System.Windows.Forms.TextBox txtApodoPj;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button btnCrear;
+        private System.Windows.Forms.Label lblObligatorios;
     }
 }

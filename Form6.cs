@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -37,11 +38,12 @@ namespace JuegoDeRolPorTurnos
         private void btnElegir_Click(object sender, EventArgs e)
         {
             int index = listBoxLuchadores.SelectedIndex;
+            
             if(ListaDePersonajes5.Count>=2)
             {   
-                if(Pelea.Count<=2)//La lista deberia cortar en 2, pero no lo hace
-                {
-                    Pelea.Add(ListaDePersonajes5[index]); 
+                if(Pelea.Count<=2)//*La lista deberia cortar en 2, pero no lo hace, corta en 4 seleccionados
+                {                    
+                     Pelea.Add(ListaDePersonajes5[index]);                     
                 }
                 else
                 {
@@ -57,28 +59,43 @@ namespace JuegoDeRolPorTurnos
         }
 
         private void btnCargar_Click_1(object sender, EventArgs e)
-        {
-            CargarDatos(Pelea);
-            label4.Visible = true;
-            btnDado.Visible = true;
-            btnDado.Enabled = true;
-            btnDado2.Visible = true;            
-            btnPelear.Visible = true;
+        {            
+            if(Pelea[0] != Pelea[1]) // control de que los peleadores de la lista "pelea" sean distintos
+            {
+                CargarDatos(Pelea);
+                label4.Visible = true;
+                btnDado.Visible = true;
+                btnDado.Enabled = true;
+                btnDado2.Visible = true;            
+                btnPelear.Visible = true;
+            }
+            else
+            {   
+                Pelea.Clear();
+                MessageBox.Show("Debe elegir dos luchadores distintos");
+                btnElegir.Enabled = true;
+                btnCargar.Enabled = false;
+            }
+
         }
 
         private void btnDado_Click_1(object sender, EventArgs e)
         {
-            btnDado2.Enabled = false;
+            btnDado2.Enabled = false;            
             dado[0] = rand.Next(1, 7);
             btnDado.Text = dado[0].ToString();
-            btnDado2.Enabled = true;            
+            btnDado2.Enabled = true;
+            btnCargar.Enabled = false;
         }
 
         private void btnDado2_Click(object sender, EventArgs e)
         {
             dado[1] = rand.Next(1, 7);
             btnDado2.Text = dado[1].ToString();
-            btnPelear.Enabled = true;            
+            if (dado[0] != dado[1])
+            {
+                btnPelear.Enabled = true;
+            }                        
         }
 
         private void btnAtacar1_Click(object sender, EventArgs e)
@@ -111,6 +128,12 @@ namespace JuegoDeRolPorTurnos
         private void btnPelear_Click(object sender, EventArgs e)
         {
             QuienAtaca();
+            if(dado[0] != dado[1])
+            {
+                btnDado.Enabled = false;
+                btnDado2.Enabled = false;
+                btnPelear.Enabled = false;
+            }
         }
 
         private void lblSigpelea_Click(object sender, EventArgs e) //se llama lblSigpelea pero es un boton
@@ -125,6 +148,7 @@ namespace JuegoDeRolPorTurnos
             btnCargar.Enabled = false;
             btnDado.Enabled = false;
             btnDado2.Enabled = false;
+            btnPelear.Enabled = false;
         }
 
         public void CargarDatos (List<Personaje> Pelea) // cargo los datos de los peleadores en pantalla
@@ -203,7 +227,8 @@ namespace JuegoDeRolPorTurnos
             else
             {
                 btnAtacar1.Enabled = false;
-                btnAtacar2.Enabled = false;                
+                btnAtacar2.Enabled = false;
+                MessageBox.Show("Vuelve a tirar el dado");
             }
         }
 
@@ -235,14 +260,11 @@ namespace JuegoDeRolPorTurnos
                     MejorarHabilidadesAlGanador(Pelea[0]); //sube de nivel y mejora stats
                     EliminarPerdedorDeLista(Pelea[1]); //eliminar perdedor de lista enlazada
                     Pelea.Clear(); //limpio la lista de peleadores elegidos                    
-                    lblGanador.Visible = true;
-                    btnAtacar1.Enabled = false;
-                    btnAtacar2.Enabled = false;
-                    lblSigpelea.Enabled = true;
-                    lblSigpelea.Visible = true;
+                    CambiarEstadoDeBotones();
                     if (ListaDePersonajes5.Count == 1)
                     {
                         MessageBox.Show(ListaDePersonajes5[0].Nombre + " " + ListaDePersonajes5[0].Apodo + " es el CAMPEÓN!");
+                        listBoxLuchadores.Enabled = false;
                     }
                 }
                 else
@@ -252,14 +274,11 @@ namespace JuegoDeRolPorTurnos
                     MejorarHabilidadesAlGanador(Pelea[1]); //sube de nivel y mejora stats
                     EliminarPerdedorDeLista(Pelea[0]); //eliminar perdedor de lista enlazada
                     Pelea.Clear(); //limpio la lista de peleadores elegidos  
-                    lblGanador.Visible = true;
-                    btnAtacar1.Enabled = false;
-                    btnAtacar2.Enabled = false;
-                    lblSigpelea.Enabled = true;
-                    lblSigpelea.Visible = true;
+                    CambiarEstadoDeBotones();
                     if (ListaDePersonajes5.Count == 1)
                     {
                         MessageBox.Show(ListaDePersonajes5[0].Nombre + " " + ListaDePersonajes5[0].Apodo + " es el CAMPEÓN!");
+                        listBoxLuchadores.Enabled = false;
                     }
                 }
             }            
@@ -272,14 +291,11 @@ namespace JuegoDeRolPorTurnos
                     MejorarHabilidadesAlGanador(Pelea[0]); //sube de nivel y mejora stats
                     EliminarPerdedorDeLista(Pelea[1]);
                     Pelea.Clear();
-                    lblGanador.Visible = true;
-                    btnAtacar1.Enabled = false;
-                    btnAtacar2.Enabled = false;
-                    lblSigpelea.Enabled = true;
-                    lblSigpelea.Visible = true;
+                    CambiarEstadoDeBotones();
                     if (ListaDePersonajes5.Count == 1)
                     {
                         MessageBox.Show(ListaDePersonajes5[0].Nombre + " " + ListaDePersonajes5[0].Apodo + " es el CAMPEÓN!");
+                        listBoxLuchadores.Enabled = false;
                     }
                 }
                 else if (Pelea[0].Salud < 0)
@@ -289,18 +305,28 @@ namespace JuegoDeRolPorTurnos
                     MejorarHabilidadesAlGanador(Pelea[1]); //sube de nivel y mejora stats
                     EliminarPerdedorDeLista(Pelea[0]);
                     Pelea.Clear();
-                    lblGanador.Visible = true;
-                    btnAtacar1.Enabled = false;
-                    btnAtacar2.Enabled = false;
-                    lblSigpelea.Enabled = true;
-                    lblSigpelea.Visible = true;
+                    CambiarEstadoDeBotones();
                     if (ListaDePersonajes5.Count == 1)
                     {
                         MessageBox.Show(ListaDePersonajes5[0].Nombre + " " + ListaDePersonajes5[0].Apodo + " es el CAMPEÓN!");
+                        listBoxLuchadores.Enabled = false;                        
                     }
                 }
             }
-        }        
+        }
+        
+        public void CambiarEstadoDeBotones()
+        {
+            lblGanador.Visible = true;
+            btnAtacar1.Enabled = false;
+            btnAtacar2.Enabled = false;
+            lblSigpelea.Enabled = true;
+            lblSigpelea.Visible = true;
+            btnCargar.Enabled = false;
+            btnDado.Enabled = false;
+            btnDado2.Enabled = false;
+            btnPelear.Enabled = false;
+        }
 
         public void Atacar(Personaje Ataca, Personaje Defiende) // Cálculo del daño
         {

@@ -62,17 +62,17 @@ namespace JuegoDeRolPorTurnos
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(287, 188);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(278, 188);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(183, 15);
+            this.label2.Size = new System.Drawing.Size(208, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Seleccione la cantidad de rivales: ";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(475, 185);
+            this.comboBox1.Location = new System.Drawing.Point(484, 185);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(42, 23);
             this.comboBox1.TabIndex = 3;

@@ -19,6 +19,25 @@ namespace JuegoDeRolPorTurnos
 
         private void Form4_Load(object sender, EventArgs e)
         {
+            CargarElementosEnFormulario();
+            CargarImagenDelPersonajeCreado();
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            ListadoDePersonajes3.Clear();
+            Form2 segundoFormulario = new Form2();
+            segundoFormulario.ShowDialog();
+        }
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            Form5 quintoFormulario = new Form5(ListadoDePersonajes3);
+            quintoFormulario.ShowDialog();
+        }
+
+        private void CargarElementosEnFormulario()
+        {
             imgElfa.SendToBack(); // envio images al fondo del formulario, no sabia como hacerlo de otra manera
             imgOrco.SendToBack();
             imgEnano.SendToBack();
@@ -34,21 +53,6 @@ namespace JuegoDeRolPorTurnos
             lblDestreza.Text = "Destreza: " + ListadoDePersonajes3[0].Destreza.ToString();
             lblFuerza.Text = "Fuerza: " + ListadoDePersonajes3[0].Fuerza.ToString();
             lblArmadura.Text = "Armadura: " + ListadoDePersonajes3[0].Armadura.ToString();
-
-            CargarImagenDelPersonajeCreado();
-        }
-
-        private void btnAtras_Click(object sender, EventArgs e)
-        {
-            ListadoDePersonajes3.Clear();
-            Form2 segundoFormulario = new Form2();
-            segundoFormulario.ShowDialog();
-        }
-
-        private void btnSiguiente_Click(object sender, EventArgs e)
-        {
-            Form5 quintoFormulario = new Form5(ListadoDePersonajes3);
-            quintoFormulario.ShowDialog();
         }
 
         private void CargarImagenDelPersonajeCreado()

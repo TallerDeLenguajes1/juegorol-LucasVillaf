@@ -379,7 +379,7 @@ namespace JuegoDeRolPorTurnos
             this.lblGanador.BackColor = System.Drawing.Color.Transparent;
             this.lblGanador.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblGanador.ForeColor = System.Drawing.Color.Black;
-            this.lblGanador.Location = new System.Drawing.Point(336, 397);
+            this.lblGanador.Location = new System.Drawing.Point(366, 404);
             this.lblGanador.Name = "lblGanador";
             this.lblGanador.Size = new System.Drawing.Size(92, 21);
             this.lblGanador.TabIndex = 32;
