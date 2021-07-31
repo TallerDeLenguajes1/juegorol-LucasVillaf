@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Text;
+using System.Text.Json;
 using System.Windows.Forms;
 
 namespace JuegoDeRolPorTurnos
@@ -13,6 +14,9 @@ namespace JuegoDeRolPorTurnos
     {
         List<Personaje> ListaDePersonajes5 = new List<Personaje>();
         List<Personaje> Pelea = new List<Personaje>();
+        Participantes PeleadoresParcipantes = new Participantes();
+        StringBuilder nuevoString = new StringBuilder();
+        StringBuilder ranking = new StringBuilder();
         Random rand = new Random();
         int[] dado = new int[2];
         int cant1 = 0, cant2 = 0;
@@ -22,9 +26,15 @@ namespace JuegoDeRolPorTurnos
             ListaDePersonajes5 = ListaDePersonajes;
         }
 
-        private void Form6_Load(object sender, EventArgs e)
+        private void Form6_Load(object sender, EventArgs e) //carga de formulario
         {
             MostrarLuchadores(ListaDePersonajes5);
+
+            foreach (var Listado in ListaDePersonajes5) //cargo luchadores del torneo en la lista de la Clase "participantes"
+            {
+                PeleadoresParcipantes.ListaDeParticipantes.Add(Listado.Nombre + " " + Listado.Apodo + ", " + Listado.Clase);
+            }
+                PeleadoresParcipantes.Fecha = DateTime.Now;
         }
 
         public void MostrarLuchadores (List<Personaje> ListaDePeleadores) // muestra luchadores en listbox
@@ -32,6 +42,7 @@ namespace JuegoDeRolPorTurnos
             foreach(Personaje Peleador in ListaDePeleadores)
             {
                 listBoxLuchadores.Items.Add(Peleador.Nombre + " " + Peleador.Apodo + ", " + Peleador.Clase);
+                nuevoString.Append(Peleador.Nombre + " " + Peleador.Apodo + ", " + Peleador.Clase + "\n");
             }
         }
 
@@ -132,6 +143,12 @@ namespace JuegoDeRolPorTurnos
             btnDado.Enabled = false;
             btnDado2.Enabled = false;
             btnPelear.Enabled = false;
+        }
+        private void detallesBtn_Click(object sender, EventArgs e) //detalles del torneo actual
+        {
+            MessageBox.Show("Participantes: \n" + nuevoString.ToString() + "\nCampeón: \n" + PeleadoresParcipantes.Ganador);
+            detallesBtn.Enabled = false;
+                
         }
 
         public void ElegirYControlarCantidadDePeleadores()
@@ -332,8 +349,34 @@ namespace JuegoDeRolPorTurnos
                 lblGanador.Text = ListaDePersonajes5[0].Nombre + " " + ListaDePersonajes5[0].Apodo + " es el CAMPEÓN!";
                 listBoxLuchadores.Enabled = false;
                 lblSigpelea.Enabled = false;
+                detallesBtn.Enabled = true;
+                detallesBtn.Visible = true;
+                gndHistBtn.Enabled = true;
+                gndHistBtn.Visible = true;
+                PeleadoresParcipantes.Ganador =   ListaDePersonajes5[0].Nombre + " " + 
+                                                    ListaDePersonajes5[0].Apodo + ", " + ListaDePersonajes5[0].Clase;
+                
+                //escribo datos en archivo json
+                string jsonDatos = JsonSerializer.Serialize(PeleadoresParcipantes);
+                FileStream miArchivo = new FileStream("rankingHistorico.json", FileMode.Create);
+                StreamWriter strWriter = new StreamWriter(miArchivo);
+                strWriter.WriteLine(jsonDatos);
+                strWriter.Close();
             }
         }
+        private void gndHistBtn_Click(object sender, EventArgs e)
+        {
+            StreamReader reader = new StreamReader("rankingHistorico.json");
+            string jsonRead = reader.ReadToEnd();
+            Participantes datosR = JsonSerializer.Deserialize<Participantes>(jsonRead);            
+            
+            ranking.Append("Ultimo ganador: \nFecha: " + datosR.Fecha + "\nCampeón: \n" + datosR.Ganador + "\n\n");            
+
+            MessageBox.Show(ranking.ToString());
+
+            gndHistBtn.Enabled = false;
+        }
+
         
         public void CambiarEstadoDeBotones()
         {

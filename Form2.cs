@@ -32,6 +32,7 @@ namespace JuegoDeRolPorTurnos
         {
             Form3 tercerFormulario = new Form3(ListadoDePersonajes);
             tercerFormulario.ShowDialog();
+            
         }
     }
 }

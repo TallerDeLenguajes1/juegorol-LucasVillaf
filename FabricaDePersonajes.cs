@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace JuegoDeRolPorTurnos
 {
@@ -10,7 +14,16 @@ namespace JuegoDeRolPorTurnos
         public Personaje CrearPersonajePorDefecto()
         {
             Random random = new Random();      
-            Personaje nuevoPersonaje = new Personaje();            
+            Personaje nuevoPersonaje = new Personaje();
+
+            //dota2 apodos = ObtenerDatos();
+            List<string> ListaDeNombres = new List<string>();
+
+            /*foreach (var item in apodos.LocalizedName)
+            {
+                ListaDeNombres.Add(apodos.LocalizedName);
+            }*/
+
             string[] Nombres = { "Lucas", "Juan", "Pedro", "Alejandro", "Lucia", "Mariela", "José", "Simón", "Carmen" };
             string[] Apodos = { "Grande", "Matador", "Valiente", "Veloz", "Sanguinario", "Increible", "Degollador", "Malo", "Torpe" };
             int AñoActual = DateTime.Now.Year;
@@ -19,6 +32,8 @@ namespace JuegoDeRolPorTurnos
             nuevoPersonaje.Clase = GenerarClaseAleatoria(random);
             nuevoPersonaje.Nombre = Nombres[random.Next(0, 9)];
             nuevoPersonaje.Apodo = Apodos[random.Next(0, 9)];
+            //nuevoPersonaje.Apodo = ListaDeNombres[random.Next(0, ListaDeNombres.Count)];
+            
             nuevoPersonaje.FechadeNacimiento = GenerarFechaAleatoria(random);
             nuevoPersonaje.Edad = AñoActual - nuevoPersonaje.FechadeNacimiento.Year;
             StatsDeLaClase(nuevoPersonaje);            
@@ -73,8 +88,67 @@ namespace JuegoDeRolPorTurnos
         {
             var value = Enum.GetValues(typeof(TipoDeClase));
             return((TipoDeClase)value.GetValue(random.Next(value.Length)));
-        }               
-        
-    
+        }
+
+        /*private static dota2 ObtenerDatos()
+        {
+            var url = $"https://api.opendota.com/api/heroes";
+            var request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "GET";
+            request.ContentType = "aplication/json";
+            request.Accept = "aplication/json";
+            dota2 DotaInfo;
+            DotaInfo = null;
+
+            try
+            {
+                using (WebResponse response = request.GetResponse())
+                {
+                    using (Stream strReader = response.GetResponseStream())
+                    {
+                        if (strReader != null)
+                        {
+                            using (StreamReader objReader = new StreamReader(strReader))
+                            {
+                                string responseBody = objReader.ReadToEnd();
+                                DotaInfo = JsonSerializer.Deserialize<dota2>(responseBody);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (WebException ex)
+            {
+                // Handle error
+            }
+            return DotaInfo;
+        }
+
+        // Root myDeserializedClass = JsonSerializer.Deserialize<Root>(myJsonResponse);
+        public class dota2
+        {
+            [JsonPropertyName("id")]
+            public int Id { get; set; }
+
+            [JsonPropertyName("name")]
+            public string Name { get; set; }
+
+            [JsonPropertyName("localized_name")]
+            public string LocalizedName { get; set; }
+
+            [JsonPropertyName("primary_attr")]
+            public string PrimaryAttr { get; set; }
+
+            [JsonPropertyName("attack_type")]
+            public string AttackType { get; set; }
+
+            [JsonPropertyName("roles")]
+            public List<string> Roles { get; set; }
+
+            [JsonPropertyName("legs")]
+            public int Legs { get; set; }
+        }
+        */
+
     }
 }

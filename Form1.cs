@@ -26,6 +26,7 @@ namespace JuegoDeRolPorTurnos
         {
             Form2 segundoFormulario = new Form2();
             segundoFormulario.ShowDialog();
+            
         }
     }
 }

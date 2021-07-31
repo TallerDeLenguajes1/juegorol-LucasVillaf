@@ -19,7 +19,6 @@ C:\Taller I\2021\Repositorios\JuegoDeRol\JuegoDeRolPorTurnos\obj\Debug\netcoreap
 C:\Taller I\2021\Repositorios\JuegoDeRol\JuegoDeRolPorTurnos\obj\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.Properties.Resources.resources
 C:\Taller I\2021\Repositorios\JuegoDeRol\JuegoDeRolPorTurnos\obj\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.Form5.resources
 C:\Taller I\2021\Repositorios\JuegoDeRol\JuegoDeRolPorTurnos\obj\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.Form6.resources
-C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\obj\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.csprojAssemblyReference.cache
 C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\obj\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.Form1.resources
 C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\obj\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.Form2.resources
 C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\obj\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.Form3.resources
@@ -40,3 +39,4 @@ C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\obj\Debug\netcoreapp
 C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\obj\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.AssemblyInfo.cs
 C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\obj\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.csproj.CoreCompileInputs.cache
 C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\obj\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.genruntimeconfig.cache
+C:\Taller I\2021\Repositorios\Proyecto\juegorol-LucasVillaf\obj\Debug\netcoreapp3.1\JuegoDeRolPorTurnos.csproj.AssemblyReference.cache

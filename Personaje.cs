@@ -11,9 +11,7 @@ namespace JuegoDeRolPorTurnos
         Enano,
         Elfo,
         ElfoOscuro        
-    }
-
-        
+    }      
 
    
     public class Personaje

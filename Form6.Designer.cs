@@ -62,6 +62,8 @@ namespace JuegoDeRolPorTurnos
             this.btnPelear = new System.Windows.Forms.Button();
             this.lblGanador = new System.Windows.Forms.Label();
             this.lblSigpelea = new System.Windows.Forms.Button();
+            this.detallesBtn = new System.Windows.Forms.Button();
+            this.gndHistBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -398,12 +400,38 @@ namespace JuegoDeRolPorTurnos
             this.lblSigpelea.Visible = false;
             this.lblSigpelea.Click += new System.EventHandler(this.lblSigpelea_Click);
             // 
+            // detallesBtn
+            // 
+            this.detallesBtn.Enabled = false;
+            this.detallesBtn.Location = new System.Drawing.Point(38, 338);
+            this.detallesBtn.Name = "detallesBtn";
+            this.detallesBtn.Size = new System.Drawing.Size(193, 27);
+            this.detallesBtn.TabIndex = 34;
+            this.detallesBtn.Text = "Detalles del torneo";
+            this.detallesBtn.UseVisualStyleBackColor = true;
+            this.detallesBtn.Visible = false;
+            this.detallesBtn.Click += new System.EventHandler(this.detallesBtn_Click);
+            // 
+            // gndHistBtn
+            // 
+            this.gndHistBtn.Enabled = false;
+            this.gndHistBtn.Location = new System.Drawing.Point(38, 371);
+            this.gndHistBtn.Name = "gndHistBtn";
+            this.gndHistBtn.Size = new System.Drawing.Size(193, 27);
+            this.gndHistBtn.TabIndex = 35;
+            this.gndHistBtn.Text = "Campeón";
+            this.gndHistBtn.UseVisualStyleBackColor = true;
+            this.gndHistBtn.Visible = false;
+            this.gndHistBtn.Click += new System.EventHandler(this.gndHistBtn_Click);
+            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(804, 481);
+            this.Controls.Add(this.gndHistBtn);
+            this.Controls.Add(this.detallesBtn);
             this.Controls.Add(this.lblSigpelea);
             this.Controls.Add(this.lblGanador);
             this.Controls.Add(this.btnPelear);
@@ -482,5 +510,7 @@ namespace JuegoDeRolPorTurnos
         private System.Windows.Forms.Button btnPelear;
         private System.Windows.Forms.Label lblGanador;
         private System.Windows.Forms.Button lblSigpelea;
+        private System.Windows.Forms.Button detallesBtn;
+        private System.Windows.Forms.Button gndHistBtn;
     }
 }
