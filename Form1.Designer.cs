@@ -32,6 +32,7 @@ namespace JuegoDeRolPorTurnos
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnJugar = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.btnUltCpn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnJugar
@@ -57,12 +58,23 @@ namespace JuegoDeRolPorTurnos
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Torneo de peleas";
             // 
+            // btnUltCpn
+            // 
+            this.btnUltCpn.Location = new System.Drawing.Point(334, 376);
+            this.btnUltCpn.Name = "btnUltCpn";
+            this.btnUltCpn.Size = new System.Drawing.Size(137, 36);
+            this.btnUltCpn.TabIndex = 2;
+            this.btnUltCpn.Text = "Último campeón";
+            this.btnUltCpn.UseVisualStyleBackColor = true;
+            this.btnUltCpn.Click += new System.EventHandler(this.btnUltCpn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(804, 481);
+            this.Controls.Add(this.btnUltCpn);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnJugar);
             this.MaximizeBox = false;
@@ -80,6 +92,7 @@ namespace JuegoDeRolPorTurnos
 
         private System.Windows.Forms.Button btnJugar;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnUltCpn;
     }
 }
 

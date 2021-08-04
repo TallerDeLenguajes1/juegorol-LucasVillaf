@@ -1,4 +1,5 @@
-﻿using System;
+﻿//using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -15,14 +16,16 @@ namespace JuegoDeRolPorTurnos
         {
             Random random = new Random();      
             Personaje nuevoPersonaje = new Personaje();
+            List<dota2> valoresObtenidos = new List<dota2>();
 
-            //dota2 apodos = ObtenerDatos();
+            valoresObtenidos = ObtenerDatos();
             List<string> ListaDeNombres = new List<string>();
 
-            /*foreach (var item in apodos.LocalizedName)
+            foreach (var item in valoresObtenidos)
             {
-                ListaDeNombres.Add(apodos.LocalizedName);
-            }*/
+                ListaDeNombres.Add(item.LocalizedName);
+            }
+            
 
             string[] Nombres = { "Lucas", "Juan", "Pedro", "Alejandro", "Lucia", "Mariela", "José", "Simón", "Carmen" };
             string[] Apodos = { "Grande", "Matador", "Valiente", "Veloz", "Sanguinario", "Increible", "Degollador", "Malo", "Torpe" };
@@ -31,8 +34,8 @@ namespace JuegoDeRolPorTurnos
 
             nuevoPersonaje.Clase = GenerarClaseAleatoria(random);
             nuevoPersonaje.Nombre = Nombres[random.Next(0, 9)];
-            nuevoPersonaje.Apodo = Apodos[random.Next(0, 9)];
-            //nuevoPersonaje.Apodo = ListaDeNombres[random.Next(0, ListaDeNombres.Count)];
+            //nuevoPersonaje.Apodo = Apodos[random.Next(0, 9)];
+            nuevoPersonaje.Apodo = ListaDeNombres[random.Next(0, ListaDeNombres.Count)];
             
             nuevoPersonaje.FechadeNacimiento = GenerarFechaAleatoria(random);
             nuevoPersonaje.Edad = AñoActual - nuevoPersonaje.FechadeNacimiento.Year;
@@ -90,14 +93,15 @@ namespace JuegoDeRolPorTurnos
             return((TipoDeClase)value.GetValue(random.Next(value.Length)));
         }
 
-        /*private static dota2 ObtenerDatos()
+        private static List<dota2> ObtenerDatos()
         {
             var url = $"https://api.opendota.com/api/heroes";
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "GET";
             request.ContentType = "aplication/json";
             request.Accept = "aplication/json";
-            dota2 DotaInfo;
+            //dota2 DotaInfo;
+            List<dota2> DotaInfo;
             DotaInfo = null;
 
             try
@@ -111,7 +115,8 @@ namespace JuegoDeRolPorTurnos
                             using (StreamReader objReader = new StreamReader(strReader))
                             {
                                 string responseBody = objReader.ReadToEnd();
-                                DotaInfo = JsonSerializer.Deserialize<dota2>(responseBody);
+                                //DotaInfo = JsonConvert.DeserializeObject<List<dota2>>(responseBody);
+                                DotaInfo = JsonSerializer.Deserialize<List<dota2>>(responseBody);                            
                             }
                         }
                     }
@@ -148,7 +153,7 @@ namespace JuegoDeRolPorTurnos
             [JsonPropertyName("legs")]
             public int Legs { get; set; }
         }
-        */
+        
 
     }
 }

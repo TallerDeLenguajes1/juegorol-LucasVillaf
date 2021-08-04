@@ -143,6 +143,7 @@ namespace JuegoDeRolPorTurnos
             btnDado.Enabled = false;
             btnDado2.Enabled = false;
             btnPelear.Enabled = false;
+            lblSigpelea.Enabled = false;
         }
         private void detallesBtn_Click(object sender, EventArgs e) //detalles del torneo actual
         {
@@ -375,6 +376,7 @@ namespace JuegoDeRolPorTurnos
             MessageBox.Show(ranking.ToString());
 
             gndHistBtn.Enabled = false;
+            
         }
 
         
