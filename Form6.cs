@@ -144,6 +144,13 @@ namespace JuegoDeRolPorTurnos
             btnDado2.Enabled = false;
             btnPelear.Enabled = false;
             lblSigpelea.Enabled = false;
+
+            if(lblSigpelea.Text == "Pelear de nuevo")
+            {
+                Form2 nuevoFormulario2 = new Form2();
+                nuevoFormulario2.ShowDialog();
+            }
+
         }
         private void detallesBtn_Click(object sender, EventArgs e) //detalles del torneo actual
         {
@@ -353,16 +360,25 @@ namespace JuegoDeRolPorTurnos
                 detallesBtn.Enabled = true;
                 detallesBtn.Visible = true;
                 gndHistBtn.Enabled = true;
-                gndHistBtn.Visible = true;
-                PeleadoresParcipantes.Ganador =   ListaDePersonajes5[0].Nombre + " " + 
-                                                    ListaDePersonajes5[0].Apodo + ", " + ListaDePersonajes5[0].Clase;
+                gndHistBtn.Visible = true;          
                 
+                PeleadoresParcipantes.Ganador =   ListaDePersonajes5[0].Nombre + " " + 
+                                                    ListaDePersonajes5[0].Apodo + ", " + ListaDePersonajes5[0].Clase;                
+                
+
                 //escribo datos en archivo json
                 string jsonDatos = JsonSerializer.Serialize(PeleadoresParcipantes);
                 FileStream miArchivo = new FileStream("rankingHistorico.json", FileMode.Create);
                 StreamWriter strWriter = new StreamWriter(miArchivo);
                 strWriter.WriteLine(jsonDatos);
                 strWriter.Close();
+
+                lblSigpelea.Enabled = true;
+                lblSigpelea.Text = "Pelear de nuevo";
+
+                salirBtn.Enabled = true;
+                salirBtn.Visible = true;
+                
             }
         }
         private void gndHistBtn_Click(object sender, EventArgs e)
@@ -371,7 +387,8 @@ namespace JuegoDeRolPorTurnos
             string jsonRead = reader.ReadToEnd();
             Participantes datosR = JsonSerializer.Deserialize<Participantes>(jsonRead);            
             
-            ranking.Append("Ultimo ganador: \nFecha: " + datosR.Fecha + "\nCampeón: \n" + datosR.Ganador + "\n\n");            
+            ranking.Append("Ultimo ganador: \nFecha: " + datosR.Fecha + "\nCampeón: \n" + datosR.Ganador + "\n\n");          
+                        
 
             MessageBox.Show(ranking.ToString());
 
@@ -391,6 +408,11 @@ namespace JuegoDeRolPorTurnos
             btnDado.Enabled = false;
             btnDado2.Enabled = false;
             btnPelear.Enabled = false;
+        }
+
+        private void salirBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         public void Atacar(Personaje Ataca, Personaje Defiende) // Cálculo del daño

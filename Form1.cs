@@ -38,7 +38,7 @@ namespace JuegoDeRolPorTurnos
                 StringBuilder ranking = new StringBuilder();
                 StreamReader reader = new StreamReader("rankingHistorico.json");
                 string jsonRead = reader.ReadToEnd();
-                Participantes datosR = JsonSerializer.Deserialize<Participantes>(jsonRead);
+                Participantes datosR = JsonSerializer.Deserialize<Participantes>(jsonRead);                
 
                 ranking.Append("Ultimo ganador: \nFecha: " + datosR.Fecha + "\nCampeón: \n" + datosR.Ganador + "\n\n");
 

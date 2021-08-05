@@ -64,6 +64,7 @@ namespace JuegoDeRolPorTurnos
             this.lblSigpelea = new System.Windows.Forms.Button();
             this.detallesBtn = new System.Windows.Forms.Button();
             this.gndHistBtn = new System.Windows.Forms.Button();
+            this.salirBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -424,12 +425,26 @@ namespace JuegoDeRolPorTurnos
             this.gndHistBtn.Visible = false;
             this.gndHistBtn.Click += new System.EventHandler(this.gndHistBtn_Click);
             // 
+            // salirBtn
+            // 
+            this.salirBtn.Enabled = false;
+            this.salirBtn.ForeColor = System.Drawing.Color.Red;
+            this.salirBtn.Location = new System.Drawing.Point(747, 441);
+            this.salirBtn.Name = "salirBtn";
+            this.salirBtn.Size = new System.Drawing.Size(45, 28);
+            this.salirBtn.TabIndex = 36;
+            this.salirBtn.Text = "Salir";
+            this.salirBtn.UseVisualStyleBackColor = true;
+            this.salirBtn.Visible = false;
+            this.salirBtn.Click += new System.EventHandler(this.salirBtn_Click);
+            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(804, 481);
+            this.Controls.Add(this.salirBtn);
             this.Controls.Add(this.gndHistBtn);
             this.Controls.Add(this.detallesBtn);
             this.Controls.Add(this.lblSigpelea);
@@ -512,5 +527,6 @@ namespace JuegoDeRolPorTurnos
         private System.Windows.Forms.Button lblSigpelea;
         private System.Windows.Forms.Button detallesBtn;
         private System.Windows.Forms.Button gndHistBtn;
+        private System.Windows.Forms.Button salirBtn;
     }
 }
